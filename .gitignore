@@ -1,0 +1,9 @@
+.venv
+.vscode
+__pycache__
+.env
+risk_management.db
+logs/
+temp/
+*.log
+*.tmp
