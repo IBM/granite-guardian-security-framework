@@ -4,6 +4,10 @@ from typing import Optional
 from guardian import check_user_risk, check_ai_risk, all_checks
 from send_email import send_email
 from db import insert_data
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class UserInput(BaseModel):
@@ -47,11 +51,14 @@ def check_user_input(input: UserInput):
     # Process the user input here
     risk, prob_of_risk = check_user_risk(input.input_text)
     if risk == "Yes":
-        send_email(
-            risk_type="User Input",
-            name=user_name,
-            email=email,
-        )
+        # Check if the environment variable exists
+        if os.getenv("SENDGRID_API_KEY"):
+            send_email(
+                risk_type="User Input",
+                name=user_name,
+                email=email,
+            )
+
         insert_data(
             user_name=user_name,
             email=email,
@@ -67,7 +74,9 @@ def check_ai_response(input: RiskAnalyse):
     # Process the user input here
     risk, prob_of_risk = check_ai_risk(input.user_input, input.ai_response)
     if risk == "Yes":
-        send_email(risk_type="AI Response", name=user_name, email=email)
+        if os.getenv("SENDGRID_API_KEY"):
+            send_email(risk_type="AI Response", name=user_name, email=email)
+
         insert_data(
             user_name=user_name,
             email=email,
@@ -90,7 +99,9 @@ def risk_analyse(input: RiskAnalyse):
         or risks["ai_risk"] == "Yes"
         or risks["relevance_risk_prob"] >= 0.8
     ):
-        send_email(risk_type="", name=user_name, email=email)
+        if os.getenv("SENDGRID_API_KEY"):
+            send_email(risk_type="", name=user_name, email=email)
+
         insert_data(
             user_name=user_name,
             email=email,
