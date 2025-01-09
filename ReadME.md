@@ -12,6 +12,8 @@ This project is a security framework for Large Language Models (LLMs) and Retrie
 
 Built with FastAPI, this framework integrates with IBM Watsonx for risk detection and SendGrid for real-time email alerts.
 
+The detailed documentation can be found here - https://community.ibm.com/community/user/watsonx/blogs/yash-sawlani/2025/01/02/protecting-rag-and-ai-apps
+
 ## Features
 
 - **User Risk Detection** – Screens user input before it reaches the main LLM.
@@ -33,8 +35,8 @@ Before running the application, ensure you have:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/llm-security-framework.git
-cd llm-security-framework
+git clone https://github.com/IBM/granite-guardian-security-framework
+cd granite-guardian-security-framework
 ```
 
 ### 2. Set Up Environment Variables
