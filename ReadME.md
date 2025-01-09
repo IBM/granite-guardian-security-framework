@@ -119,9 +119,3 @@ POST /relevance-risk
 ## Contributing
 
 Feel free to open issues or submit PRs to enhance functionality! 🚀
-
-## License
-
-[MIT License](LICENSE) - Use and modify freely.
-
-💡 Let’s make AI safer together! #AI #LLMSecurity #GraniteGuardian #AICompliance
