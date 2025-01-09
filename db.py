@@ -3,10 +3,8 @@ import sqlite3
 connection = sqlite3.connect("risk_management.db", check_same_thread=False)
 cursor = connection.cursor()
 
-
-def create_tables():
-    cursor.execute(
-        """
+cursor.execute(
+    """
         CREATE TABLE IF NOT EXISTS risks (
             user_name TEXT NOT NULL,
             email TEXT NOT NULL,
@@ -20,8 +18,8 @@ def create_tables():
             relevance_risk_prob INT
         )
     """
-    )
-    connection.commit()
+)
+connection.commit()
 
 
 def select_all():
@@ -67,5 +65,5 @@ def delete_data():
 
 
 if __name__ == "__main__":
-    create_tables()
+    # create_tables()
     select_all()

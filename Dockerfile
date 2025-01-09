@@ -10,17 +10,17 @@ ENV POETRY_NO_INTERACTION=1 \
     POETRY_CACHE_DIR=/tmp/poetry_cache
 
 # Set working directory
-WORKDIR /app/api
+WORKDIR /app
 
 # Copy poetry files
-COPY api/pyproject.toml api/poetry.lock ./
+COPY pyproject.toml poetry.lock ./
 
 # Install dependencies
 RUN poetry install
 
 RUN poetry cache clear --all .
 # Copy application files
-COPY api/ .
+COPY . .
 
 # Expose port
 EXPOSE 8000

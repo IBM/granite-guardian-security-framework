@@ -1,11 +1,12 @@
 # Ignore Python virtual environments and dependencies
 __pycache__/
+__pycache__
 *.pyc
 *.pyo
 *.pyd
 .venv
 .env
-
+risk_management.db
 # Poetry files that should not be copied
 .poetry
 
