@@ -1,0 +1,21 @@
+# Ignore Python virtual environments and dependencies
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv
+.env
+
+# Poetry files that should not be copied
+.poetry
+
+# Ignore build artifacts
+dist/
+build/
+
+# Ignore IDE and editor files
+.DS_Store
+.git
+.gitignore
+.vscode
+.idea
